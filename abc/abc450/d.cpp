@@ -15,5 +15,7 @@ int main() {
         cin >> A[i];
     }
     
+    sort(A.begin(), A.end());
+
     return 0;
 }
