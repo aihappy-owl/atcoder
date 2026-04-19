@@ -5,6 +5,21 @@
 
 using namespace std;
 
+void sort_parens(string S, int left, int right, int &N) {
+    if (left + right == N - 1) {
+        cout << S + ")" << "\n";
+        return;
+    }
+
+    if (left < N / 2) {
+        sort_parens(S + "(", left + 1, right, N);
+    }
+
+    if (left > right) {
+        sort_parens(S + ")", left, right + 1, N);
+    }
+}
+
 int main() {
     int N;
 
@@ -14,12 +29,7 @@ int main() {
         return 0;
     }
 
-    vector<int> S(N);
+    sort_parens("", 0, 0, N);
 
-    for (int i = 0; i < N / 2; i++) {
-        S[i] = 1;
-        S[i + (N / 2)] = -1;
-    }
-    
     return 0;
 }
